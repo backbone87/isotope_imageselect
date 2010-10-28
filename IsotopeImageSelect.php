@@ -34,7 +34,7 @@ class IsotopeImageSelect extends Frontend
 		unset($arrData['attributes']['option_list']);
 		unset($arrData['reference']);
 		
-		$size = deserialize($arrData['attributes']['size']);
+		$size = deserialize($arrData['attributes']['imgSize']);
 				
 		$images = array();
 		$auxDate = array();
@@ -125,7 +125,7 @@ class IsotopeImageSelect extends Frontend
 			
 			foreach( $objProduct->getOptions(true) as $name => $value )
 			{
-				if ($GLOBALS['TL_DCA']['tl_iso_products']['fields'][$name]['attributes']['add_to_product_variants'])
+				if ($GLOBALS['TL_DCA']['tl_iso_products']['fields'][$name]['attributes']['variant_option'])
 				{
 					$arrSearch[$name] = $value;
 				}

@@ -29,7 +29,7 @@
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_iso_attributes']['palettes']['imageselect'] = '{attribute_legend},name,field_name,type,legend,description;{options_legend},imageSource,size,sortBy;{visibility_legend},is_listing_field,is_visible_on_front;{use_mode_legend},multilingual,is_customer_defined,add_to_product_variants,is_multiple_select;{validation_legend},is_required;{search_filters_legend},is_filterable,is_order_by_enabled';
+$GLOBALS['TL_DCA']['tl_iso_attributes']['palettes']['imageselect'] = '{attribute_legend},name,field_name,type,legend,description;{options_legend},imageSource,imgSize,sortBy;{visibility_legend},is_listing_field,is_visible_on_front;{use_mode_legend},multilingual,is_customer_defined,variant_option,is_multiple_select;{validation_legend},is_required;{search_filters_legend},is_filterable,is_order_by_enabled';
 
 
 /**
@@ -42,9 +42,9 @@ $GLOBALS['TL_DCA']['tl_iso_attributes']['fields']['imageSource'] = array
 	'eval'					=> array('fieldType'=>'radio', 'mandatory'=>true, 'tl_class'=>'clr'),
 );
 
-$GLOBALS['TL_DCA']['tl_iso_attributes']['fields']['size'] = array
+$GLOBALS['TL_DCA']['tl_iso_attributes']['fields']['imgSize'] = array
 (
-	'label'					=> &$GLOBALS['TL_LANG']['tl_iso_attributes']['size'],
+	'label'					=> &$GLOBALS['TL_LANG']['tl_iso_attributes']['imgSize'],
 	'inputType'				=> 'imageSize',
 	'options'				=> array('crop', 'proportional', 'box'),
 	'reference'				=> &$GLOBALS['TL_LANG']['MSC'],

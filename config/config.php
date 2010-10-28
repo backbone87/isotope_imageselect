@@ -38,7 +38,7 @@ $GLOBALS['BE_FFL']['imageselect'] = 'FormImageSelect';
 $GLOBALS['ISO_ATTR']['imageselect'] = array
 (
 	'class'		=> 'FormImageSelect',
-	'backend'	=> 'optionDataWizard',
+	'backend'	=> 'optionWizard',
 	'sql'		=> "blob NULL",
 	'callback'	=> array(array('IsotopeImageSelect', 'mergeData')),
 );

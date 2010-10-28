@@ -30,7 +30,7 @@
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_iso_attributes']['imageSource'] = array('Image source', 'Please select the folder to load images from. You can remove certain images per product/variant.');
-$GLOBALS['TL_LANG']['tl_iso_attributes']['size']		= array('Image width and height', 'Here you can set the image dimensions and the resize mode.');
+$GLOBALS['TL_LANG']['tl_iso_attributes']['imgSize']		= array('Image width and height', 'Here you can set the image dimensions and the resize mode.');
 $GLOBALS['TL_LANG']['tl_iso_attributes']['sortBy']		= array('Order by', 'Please choose the sort order.');
 
 

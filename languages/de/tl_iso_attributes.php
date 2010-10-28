@@ -31,7 +31,7 @@
  */
 $GLOBALS['TL_LANG']['tl_iso_attributes']['imageSource'] = array('Bilder-Quelle', 'Wählen Sie den Ordner mit Bildern. Sie können einzelne Bilder pro Produkt wieder entfernen.');
 $GLOBALS['TL_LANG']['tl_iso_attributes']['sortBy']		= array('Sortieren nach', 'Bitte wählen Sie eine Sortierreihenfolge aus.');
-$GLOBALS['TL_LANG']['tl_iso_attributes']['size']		= array('Bildbreite und Bildhöhe', 'Hier können Sie die Abmessungen der Bilder und den Skalierungsmodus festlegen.');
+$GLOBALS['TL_LANG']['tl_iso_attributes']['imgSize']		= array('Bildbreite und Bildhöhe', 'Hier können Sie die Abmessungen der Bilder und den Skalierungsmodus festlegen.');
 
 
 /**
