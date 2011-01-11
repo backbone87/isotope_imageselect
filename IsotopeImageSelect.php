@@ -160,9 +160,6 @@ class IsotopeImageSelect extends Frontend
 			}
 		}
 		
-		$this->import('Isotope');
-		return $this->Isotope->mergeOptionData($strField, $arrData, $objProduct);
-		
 		return $arrData;
 	}
 }
