@@ -8,12 +8,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation, either
  * version 3 of the License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this program. If not, please visit the Free
  * Software Foundation website at <http://www.gnu.org/licenses/>.
@@ -28,14 +28,14 @@
 
 class IsotopeImageSelect extends Frontend
 {
-	
+
 	public function mergeData($strField, $arrData, &$objProduct=null)
 	{
 		unset($arrData['attributes']['option_list']);
 		unset($arrData['reference']);
-		
+
 		$size = deserialize($arrData['attributes']['imgSize']);
-				
+
 		$images = array();
 		$auxDate = array();
 
@@ -107,22 +107,22 @@ class IsotopeImageSelect extends Frontend
 				$images = $arrImages;
 				break;
 		}
-		
+
 		$arrOptions = array();
 		foreach( $images as $name => $image )
 		{
 			$arrOptions[$name] = $image['alt'];
 		}
-		
+
 		$arrData['options'] = $arrOptions;
 		$arrData['images'] = $images;
 		$arrData['eval']['includeBlankOption'] = false;
-		
-		
+
+
 		if (TL_MODE == 'FE' && is_object($objProduct))
 		{
 			$arrSearch = array('pid'=>$objProduct->id);
-			
+
 			foreach( $objProduct->getOptions(true) as $name => $value )
 			{
 				if ($GLOBALS['TL_DCA']['tl_iso_products']['fields'][$name]['attributes']['variant_option'])
@@ -130,9 +130,9 @@ class IsotopeImageSelect extends Frontend
 					$arrSearch[$name] = $value;
 				}
 			}
-			
+
 			$arrOptions = $this->Database->prepare("SELECT " . $strField . " FROM tl_iso_products WHERE language='' AND published='1' AND " . implode("=? AND ", array_keys($arrSearch)) . "=? GROUP BY " . $strField)->execute($arrSearch)->fetchEach($strField);
-			
+
 			foreach( $arrData['options'] as $k => $v )
 			{
 				if (is_array($v))
@@ -144,7 +144,7 @@ class IsotopeImageSelect extends Frontend
 							unset($arrData['options'][$k][$kk]);
 						}
 					}
-					
+
 					if (!count($arrData['options'][$k]))
 					{
 						unset($arrData['options'][$k]);
@@ -159,7 +159,7 @@ class IsotopeImageSelect extends Frontend
 				}
 			}
 		}
-		
+
 		return $arrData;
 	}
 }

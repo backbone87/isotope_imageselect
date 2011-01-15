@@ -7,9 +7,9 @@
 -- *                                                        *
 -- **********************************************************
 
--- 
+--
 -- Table `tl_iso_attributes`
--- 
+--
 
 CREATE TABLE `tl_iso_attributes` (
   `imageSource` varchar(255) NOT NULL default '',
