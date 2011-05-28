@@ -29,5 +29,5 @@
 /**
  * Isotope attribute types
  */
-$GLOBALS['TL_LANG']['ATTR']['imageselect'] = 'Image Select';
+$GLOBALS['ISO_LANG']['ATTR']['imageselect'] = 'Image Select';
 
