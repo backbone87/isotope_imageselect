@@ -124,7 +124,7 @@ class IsotopeImageSelect extends Frontend
 			if ($arrData['attributes']['variant_option'])
 			{
 				$arrSearch = array('pid'=>$objProduct->id);
-	
+
 				foreach( $objProduct->getOptions(true) as $name => $value )
 				{
 					if ($GLOBALS['TL_DCA']['tl_iso_products']['fields'][$name]['attributes']['variant_option'])
@@ -132,9 +132,9 @@ class IsotopeImageSelect extends Frontend
 						$arrSearch[$name] = $value;
 					}
 				}
-	
+
 				$arrOptions = $this->Database->prepare("SELECT " . $strField . " FROM tl_iso_products WHERE language='' AND published='1' AND " . implode("=? AND ", array_keys($arrSearch)) . "=? GROUP BY " . $strField)->execute($arrSearch)->fetchEach($strField);
-	
+
 				foreach( $arrData['options'] as $k => $v )
 				{
 					if (is_array($v))
@@ -146,7 +146,7 @@ class IsotopeImageSelect extends Frontend
 								unset($arrData['options'][$k][$kk]);
 							}
 						}
-	
+
 						if (!count($arrData['options'][$k]))
 						{
 							unset($arrData['options'][$k]);
@@ -165,7 +165,7 @@ class IsotopeImageSelect extends Frontend
 			{
 				$arrOptions = array();
 				$arrValues = $objProduct->$strField;
-				
+
 				if (is_array($arrValues) && count($arrValues))
 				{
 					foreach( $arrValues as $option )
@@ -176,7 +176,7 @@ class IsotopeImageSelect extends Frontend
 						}
 					}
 				}
-				
+
 				$arrData['options'] = $arrOptions;
 			}
 		}
