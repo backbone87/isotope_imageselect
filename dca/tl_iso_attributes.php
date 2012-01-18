@@ -30,7 +30,8 @@
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_iso_attributes']['palettes']['imageselect'] = '{attribute_legend},name,field_name,type,legend,description;{options_legend},imageSource,imgSize,sortBy;{visibility_legend},is_listing_field,is_visible_on_front;{use_mode_legend},multilingual,customer_defined,variant_option,is_multiple_select;{validation_legend},is_required;{search_filters_legend},fe_filter,fe_sorting';
+$GLOBALS['TL_DCA']['tl_iso_attributes']['palettes']['imageselect']					= '{attribute_legend},name,field_name,type,legend,variant_option,customer_defined;{description_legend:hide},description;{options_legend},imageSource,imgSize,sortBy,options;{config_legend},mandatory,multiple;{search_filters_legend},fe_filter,fe_sorting,be_filter';
+$GLOBALS['TL_DCA']['tl_iso_attributes']['palettes']['imageselectvariant_option']	= '{attribute_legend},name,field_name,type,legend,variant_option;{description_legend:hide},description;{options_legend},imageSource,imgSize,sortBy,options';
 
 
 /**

@@ -32,9 +32,6 @@ class IsotopeImageSelect extends Frontend
 
 	public function mergeData($strField, $arrData, &$objProduct=null)
 	{
-		unset($arrData['attributes']['option_list']);
-		unset($arrData['reference']);
-
 		$size = deserialize($arrData['attributes']['imgSize']);
 
 		$images = array();
@@ -109,80 +106,12 @@ class IsotopeImageSelect extends Frontend
 				break;
 		}
 
-		$arrOptions = array();
-		foreach( $images as $name => $image )
-		{
-			$arrOptions[$name] = $image['alt'];
-		}
-
-		$arrData['options'] = $arrOptions;
 		$arrData['images'] = $images;
 		$arrData['eval']['includeBlankOption'] = false;
 
-
-		if (TL_MODE == 'FE' && is_object($objProduct))
-		{
-			if ($arrData['attributes']['variant_option'])
-			{
-				$arrSearch = array('pid'=>$objProduct->id);
-
-				foreach( $objProduct->getOptions(true) as $name => $value )
-				{
-					if ($GLOBALS['TL_DCA']['tl_iso_products']['fields'][$name]['attributes']['variant_option'])
-					{
-						$arrSearch[$name] = $value;
-					}
-				}
-
-				$arrOptions = $this->Database->prepare("SELECT " . $strField . " FROM tl_iso_products WHERE language='' AND published='1' AND " . implode("=? AND ", array_keys($arrSearch)) . "=? GROUP BY " . $strField)->execute($arrSearch)->fetchEach($strField);
-
-				foreach( $arrData['options'] as $k => $v )
-				{
-					if (is_array($v))
-					{
-						foreach( $v as $kk => $vv )
-						{
-							if (!in_array($kk, $arrOptions))
-							{
-								unset($arrData['options'][$k][$kk]);
-							}
-						}
-
-						if (!count($arrData['options'][$k]))
-						{
-							unset($arrData['options'][$k]);
-						}
-					}
-					else
-					{
-						if (!in_array($k, $arrOptions))
-						{
-							unset($arrData['options'][$k]);
-						}
-					}
-				}
-			}
-			else
-			{
-				$arrOptions = array();
-				$arrValues = $objProduct->$strField;
-
-				if (is_array($arrValues) && count($arrValues))
-				{
-					foreach( $arrValues as $option )
-					{
-						if (isset($arrData['options'][$option['value']]))
-						{
-							$arrOptions[$option['value']] = $option['label'] ? $option['label'] : $arrData['options'][$option['value']];
-						}
-					}
-				}
-
-				$arrData['options'] = $arrOptions;
-			}
-		}
-
 		return $arrData;
 	}
+
+
 }
 
